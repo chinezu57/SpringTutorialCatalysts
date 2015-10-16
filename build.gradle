@@ -1,0 +1,62 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE'
+    }
+}
+
+ext {
+    springBootVersion = '1.2.2.RELEASE'
+    guavaVersion = '18.0'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'gs-validating-form-input'
+    version =  '0.1.0'
+}
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.hibernate:hibernate-validator'
+    compile 'org.apache.tomcat.embed:tomcat-embed-el'
+    compile 'com.google.guava:guava:${guavaVersion}'
+    compile 'org.springframework.boot:spring-boot-starter-web:${springBootVersion}'
+    compile 'org.springframework.boot:spring-boot-starter-security:${springBootVersion}'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}'
+
+    compile 'org.springframework.boot:spring-boot-starter-websocket'
+    compile 'org.springframework:spring-messaging'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.hibernate:hibernate-validator'
+    compile 'org.apache.tomcat.embed:tomcat-embed-el'
+    compile 'com.google.guava:guava:${guavaVersion}'
+    compile 'org.springframework.boot:spring-boot-starter-web:${springBootVersion}'
+    compile 'org.springframework.boot:spring-boot-starter-security:${springBootVersion}'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile 'com.h2database:h2:1.4.185'
+
+    compile 'org.webjars:angularjs:1.4.7'
+    compile 'org.webjars:angular-material:0.11.0'
+    compile 'org.webjars:sockjs-client:1.0.2'
+    compile 'org.webjars:stomp-websocket:2.3.3'
+    compile 'org.webjars.bower:ngstorage:0.3.9'
+
+    runtime 'mysql:mysql-connector-java:5.1.26'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
